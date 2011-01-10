@@ -1,6 +1,6 @@
 c[_] JavaScript Compiler for the JVM
-https://github.com/timcameronryan/mug/
 ====================================
+https://github.com/timcameronryan/mug/
 
 Mug statically compiles JavaScript into JVM .class files.
 
