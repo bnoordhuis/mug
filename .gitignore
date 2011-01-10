@@ -1,6 +1,2 @@
-/clojure.jar
-/classes
-/clojure-src.jar
-/clojure-contrib.jar
-/clojure-contrib-src.jar
-/sandbox
+target/
+bin/
