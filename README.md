@@ -1,4 +1,5 @@
 c[_] JavaScript Compiler for the JVM
+https://github.com/timcameronryan/mug/
 ====================================
 
 Mug statically compiles JavaScript into JVM .class files.
@@ -25,10 +26,9 @@ Compile modules with mug.jar:
       --jar, -j <arg>     Output contents as jar file                         
       --package <arg>     Java package to compile modules into  [default ]    
 	
-Resulting class files are created in the output directory using the given package.
-Modules in folders will be compiled into subpackages of the main folder.
+Compiled classes are created in the output directory, using the given package name (or the default package if none is specified). Script files in subfolders of the current working directory are compiled into relative packages.
  
-Include these and mug-js.jar to run your module:
+Include your classes and mug-js.jar to run your module:
 
     java -cp mug-js.jar:bin your.package.module_name
 
@@ -51,15 +51,16 @@ To interface JavaScript with Java in Mug, require the `java` module.
     frame.setSize(200, 200)
     frame.setVisible(true)
 
-Why?
-----
+Motivation
+----------
 
-* Faster than Rhino, favoring static compilation rather than a runtime interpreter.
-* Minimal overhead. Standard library `mug-js.jar` is ~100kb.
+* Mug is faster than Rhino, favoring static compilation rather than a runtime interpreter.
+* Minimal overhead. Standard library `mug-js.jar` is ~150kb.
 * Mug's goal is that compiled code be as similar to Java as possible, and easily debuggable.
-* It's a neat party trick.
+* Mug uses CommonJS modules as its compilation units, allowing your code to be shared between Mug, node.js, RingoJS, and other implementations.
 
-The Mug compiler `mug.jar` is written in Clojure. However, compiled JavaScript has no Clojure dependencies and only requires the Java `mug-js.jar` archive.
+The JavaScript compiler `mug.jar` is written in Clojure.  
+Compiled JavaScript has no Clojure dependencies, and only requires the Java `mug-js.jar` archive.
 
 Development
 -----------
@@ -80,7 +81,7 @@ Mug is copyright 2010-2011 Tim Cameron Ryan.
 Released under the BSD license.
 
 **Credits:**
-`parse-js` CL library ported to JavaScript in 2010 by Mihai Bazon, released under the BSD license.
-`ASM Bytecode Manipulation Framework` copyright (c) OW2 Consoritum, released under the BSD license.
-`Rhino` JavaScript interpreter copyright (c) Mozilla Foundation, released under the LGPL license.
+`parse-js` CL library ported to JavaScript in 2010 by Mihai Bazon, released under the BSD license.  
+`ASM Bytecode Manipulation Framework` copyright (c) OW2 Consoritum, released under the BSD license.  
+`Rhino` JavaScript interpreter copyright (c) Mozilla Foundation, released under the LGPL license.  
 `json-simple` JSON parsing library copyright (c) fangyidong, released under Apache 2.0 license. 
